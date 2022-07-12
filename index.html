@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="./mycss.js"></script>
     <title>Ecommerce</title>
 </head>
 
@@ -27,8 +26,8 @@
                 <a href="#products">Products</a>
             </div>
             <div class="nav__icons">
-                <i class='bx bxs-sun'></i>
-                <i class='bx bx-cart'></i>
+                <i theme class='bx bxs-sun'></i>
+                <i cart class='bx bx-cart'></i>
 
             </div>
         </nav>
@@ -76,12 +75,23 @@
 
                 <content class="prod__inf">
                     <h4>WIRELESS HEADPHONES</h4>
-                    <div>
+                    <div class="prod__decription">
                         <span class="prod__price">$40.99</span>
-                        <span>| Stock: 10</span>
+
+                        <span>
+                            | Stock:
+                            <span class="prod__stock">23</span>
+                        </span>
                     </div>
-                    <span class="btn_buy" id="btn_buy">+ KART</span>
                 </content>
+                <div class="card__buy">
+                    <span class="prod__amount">
+                        <span class="amount__btn remove">-</span>
+                        <input class="prod__input" type="text" name="prod__range:1" value="1">
+                        <span class="amount__btn add">+</span>
+                    </span>
+                    <span class="btn_buy" id="btn_buy">Buy</span>
+                </div>
             </section>
 
 
@@ -110,7 +120,7 @@
 
     </main>
     <footer></footer>
-    <script src="./scripts.js"></script>
+    <script src="./assets/js/main.js" type="module"></script>
 </body>
 
 </html>

@@ -18,8 +18,8 @@
     --fondo-card-mix: rgba(10, 80, 120);
     --color-descripcion: rgb(121, 121, 121);
     --color-descripcion-fondo: rgb(121, 121, 121, 0.2);
-    --color-btn-buy: rgb(17, 49, 231);
-    --color-btn-buy-active: rgb(40, 187, 231);
+    --color-btn-buy: rgb(28, 51, 178);
+    --color-btn-buy-active: rgb(72, 88, 180);
 
 }
 
@@ -128,16 +128,20 @@ img {
 .prod__card .prod__img {
     position: relative;
     width: 100%;
-    height: 60%;
-    display: grid;
+    height: 50%;
+    display: flex;
     place-items: center;
-    padding: 1.5rem;
+    padding: 1.2rem;
     z-index: 1;
+    justify-content: center;
 }
 
 .prod__card .prod__img img {
     max-width: 100%;
     transition: 0.5s;
+    width: auto;
+    height: 100%;
+    position: relative;
 }
 
 .prod__card:hover .prod__img img {
@@ -162,33 +166,76 @@ img {
     letter-spacing: 1px;
 }
 
-.prod__card  .prod__price {
+.prod__card .prod__price {
     font-size: 1.6rem;
     color: white;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
-.prod__card .prod__inf .btn_buy {
-    position: relative;
-    padding: .6em 2.2rem;
-    margin-top: 3rem;
-    color: wheat;
+.card__buy .btn_buy {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 0.34em 2.1em;
+    color: white;
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 400;
     background-color: var(--color-btn-buy);
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     cursor: pointer;
-
 }
 
-.prod__card:hover .prod__inf .btn_buy {
-    margin-top: 1.5rem;
-    transition: 0.7s ease-in-out;
-}
-
-.prod__card .prod__inf .btn_buy:hover {
+.card__buy .btn_buy:hover {
     background: var(--color-btn-buy-active);
+}
+
+.prod__amount {
+    margin-top: 5rem;
+}
+
+
+
+.prod__amount input {
+    display: inline-block;
+    font-size: 1.5rem;
+    width: 4em;
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+}
+
+.prod__amount {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+    transition: margin 0.4s;
+}
+
+.prod__card:hover .prod__amount {
+    margin-top: 0.5rem;
+}
+
+.prod__amount .amount__btn {
+    background-color: #ccc6;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 3rem;
+    line-height: 25px;
+}
+
+.amount__btn.add {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.prod__cards .card__buy {
+    background-color: #0a5078;
+    text-align: center;
 }
 
 /* *****************************************************/
