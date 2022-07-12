@@ -23,7 +23,7 @@ const cartClear = () => {
 }
 const cartbuy = () => {
     let total
-    
+
     return total
 }
 console.log(`cartProducts`);
