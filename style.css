@@ -43,7 +43,6 @@ img {
     background-color: #1b1a2b;
     display: flex;
     flex-wrap: wrap;
-    max-width: 768px;
     margin: 0 auto;
     font-size: 1.07rem;
     text-transform: uppercase;
@@ -162,7 +161,7 @@ img {
     letter-spacing: 1px;
 }
 
-.prod__card  .prod__price {
+.prod__card .prod__price {
     font-size: 1.6rem;
     color: white;
     font-weight: 600;
