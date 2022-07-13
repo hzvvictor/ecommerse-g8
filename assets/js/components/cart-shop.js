@@ -68,7 +68,7 @@ function cartProductAdd(id, amount) {
     let product;
     product = cart.find(product => product.id == Number(id));
     if (amount > products[Number(id) - 1].stock) {
-        alert('Ya no queda stock de ' + products[id].title)
+        alert('Ya no queda stock de ' + products[Number(id) - 1].title)
         return;
     }
 
@@ -139,7 +139,7 @@ const cartProductBuy = () => {
     let total
 
     cart.forEach(
-        product => total += product.stock
+        product => total += (product.price * product.amount)
     )
     cart = []
     cartDOM.innerHTML = ""
