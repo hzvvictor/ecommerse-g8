@@ -41,15 +41,18 @@ const inputsoloNumeros = (e) => {
 }
 
 const productsInputEvents = () => {
-    const getStockActual = (e) => {
-        const prod__decription = e.target.parentElement.parentElement.previousElementSibling
+
+    const getStockActual = (e, el) => {
+        const prod__decription = e? e.target.parentElement.parentElement.previousElementSibling :el.previousElementSibling
+        console.log({el,p: el.previousElementSibling});
         const prod__stock = prod__decription.querySelector('.prod__stock')
         const stock = Number(prod__stock.textContent)
+        // console.log(prod__stock);
         return { prod__decription, prod__stock, stock }
     }
     /* Captura el teclado */
     cartShop.products.cards.addEventListener('keydown', (e) => {
-        if (e.target.matches(".prod__input") == false)
+        if (e.target.matches(".cant__prod") == false)
             return;
         /* 
           keyCodes:
@@ -71,20 +74,19 @@ const productsInputEvents = () => {
                 break;
         }
         const { stock } = getStockActual(e)
-
         value = Number(e.target.value) + (value)
         if ((value > 0 && value <= stock))
             e.target.value = value
     })
     /* Captura el teclado */
     cartShop.products.cards.addEventListener('keypress', (e) => {
-        if (e.target.matches(".prod__input") == false)
+        if (e.target.matches(".cant__prod") == false)
             return;
         inputsoloNumeros(e);
     })
     /* Captura cambios en el input */
     cartShop.products.cards.addEventListener('input', (e) => {
-        if (e.target.matches(".prod__input") == false) {
+        if (e.target.matches(".cant__prod") == false) {
             console.log('not is prod input');
             return;
         }
@@ -99,12 +101,17 @@ const productsInputEvents = () => {
     })
     /* Captura los botones de agregar y sumar */
     cartShop.products.cards.addEventListener('click', (e) => {
-        if (e.target.matches(".amount__btn") == false)
+        console.log(e.target);
+        const parentElement = e.target.parentElement
+        if (parentElement.matches(".amount__btn") == false)
             return;
-        const { stock } = getStockActual(e)
+        console.log({ parentElement });
+        const prod__buy = parentElement.parentElement.parentElement
+        const { stock } = getStockActual(false, prod__buy )
 
-        const input = e.target.parentElement.querySelector('.prod__input')
-        if (e.target.matches('.add') && input.value < stock) {
+        const input = prod__buy.querySelector('.cant__prod')
+        console.log({ input });
+        if (parentElement.matches('.add') && input.value < stock) {
             input.value = Number(input.value) + 1
             return
         }

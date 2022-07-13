@@ -1,14 +1,24 @@
 'use-strict'
+
+const addEvent = (element, nameEvent, functiontoadd) => {
+    element.addEventListener(nameEvent, functiontoadd)
+}
 import {
     productPrint,
-    productAdd,
-    productRemove,
-    productClear,
-    cartClear,
-    cartbuy,
-    products
+    cartProductPrint,
+    cartProductAdd,
+    cartProductRemove,
+    cartProductRest,
+    cartProductClear,
+    cartProductBuy,
+    products,
+    productsDOM,
+    cart,
+    cartDOM
 } from './components/cart-shop.js'
-console.log(products);
+// productPrint()
+
+// console.log(products);
 
 
 /* base de datos**/

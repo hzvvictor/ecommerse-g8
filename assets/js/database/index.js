@@ -1,34 +1,37 @@
 
-let productos = [
+const products = [
     {
-    id:1, 
-    nombre: 'smartphone', 
-    precio:950.00, imagen:'../../images/headphone.jpg', 
-    catergoria: 'telefono mobile',
-    cantidad:20
-},
-{
-    id:2, 
-    nombre: 'computadora', 
-    precio:450.00, imagen:'../../images/laptop.png',
-    catergoria: 'laptop',
-    cantidad:30
-},
-{
-    id:3, 
-    nombre: 'Ipad pro',
-    precio:980, imagen:'../../images/ipad-pro.jpeg', 
-    catergoria: 'tablet',
-    cantidad:10
-},
-{
-    id:4, 
-    nombre: 'audifonos', 
-    precio:50.00, 
-    imagen:'../../images/samsung-phone.png',
-    catergoria:'asesorios',
-    cantidad:15
-}
+        id: 1,
+        title: 'smartphone',
+        category: 'telefono mobile',
+        img: 'assets/images/headphone.jpg',
+        price: 950.00,
+        stock: 20
+    },
+    {
+        id: 2,
+        title: 'computadora',
+        category: 'laptop',
+        img: 'assets/images/laptop.png',
+        price: 450.00,
+        stock: 30
+    },
+    {
+        id: 3,
+        title: 'Ipad pro',
+        category: 'tablet',
+        img: 'assets/images/ipad-pro.jpeg',
+        price: 980,
+        stock: 10
+    },
+    {
+        id: 4,
+        title: 'audifonos',
+        category: 'asesorios',
+        img: 'assets/images/samsung-phone.png',
+        price: 50.00,
+        stock: 15
+    }
 ]
 
-export default productos
+export default products
