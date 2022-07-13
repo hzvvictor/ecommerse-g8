@@ -1,11 +1,13 @@
 import { cartShop } from './cart-elements.js'
 let ec = []
 let productsSelect = []
+const productsSelectDom = null
 const cartProducts = cartShop.cart.products
 
 /* 
  modal carrito => cartShopModal
 */
+
 
 const productPrint = () => {
     /* requiere de template de producto */
