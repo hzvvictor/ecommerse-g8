@@ -1,9 +1,10 @@
 import { cartShop } from './cart-elements.js'
-let ec = []
+let products = []
 let productsSelect = []
-const productsSelectDom = null
-const cartProducts = cartShop.cart.products
-
+const productsSelectDom = cartShop.cart.products
+const cartProducts = cartShop.products.cards
+console.log('contenedor productos sleccionados');
+console.log(productsSelectDom);
 /* 
  modal carrito => cartShopModal
 */

@@ -2,7 +2,7 @@
 import myCSS from "./mycss.js"
 
 const nav = document.getElementById('nav')
-const nav__icons = nav.querySelector('.nav__icons')
+const nav__icons = document.getElementById('nav__icons')
 const cartModal = document.getElementById('contenedor__carrito')
 const prod__cards = document.querySelector('.prod__cards')
 
