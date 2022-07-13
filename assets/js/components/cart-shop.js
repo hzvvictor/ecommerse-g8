@@ -6,7 +6,9 @@ const cartProducts = cartShop.products.cards
 console.log('contenedor productos sleccionados');
 console.log(productsSelectDom);
 /* 
- modal carrito => cartShopModal
+ modal carrito => cartShopModal 
+
+ const productsSelectDom=document.getElementById(productsSelectDom)
 */
 
 
@@ -44,13 +46,47 @@ const productPrint = () => {
     })
     cartProducts.innerHTML = inner
 }
-const productAdd = (id, amount) => {
+const productAdd = (id, stock) => {
+    const productoFiltrado = products.find(producto => producto.id===id)
+    if (productoFiltrado && productoFiltrado.stok > 0){
+     
+    const productsSelectFiltrado = productsSelect.find(productsSelect => productsSelect.id === id)
 
-    productPrint()
+        if (productsSelect){
+            
+            if(consultarInventario(id, stock + productsSelectFiltrado.stock)){
+                productsSelect.stock += stock
+            } else {
+               window.alert('No hay suficiente stock') 
+            }
+        }else {
+            productsSelect.push({id,stock})
+        }
+        
+    }else {
+        window.alert('Lo sentimos, no hay stock')
+    }
 }
-const productRemove = (id, amount) => {
 
-    productPrint()
+const productRemove = (id, stock) => {
+
+    const productsSelectFiltrado = productsSelect.find(productsSelect => productsSelect.id === id)
+
+    if (productsSelect.stok - stock > 0){
+        productsSelect.stock -= cantidad
+    }else{
+        const confirmar =window.confirm('¿Estás Seguro de que quieres remover el articulo?')
+
+        if (confirmar){
+            productsSelect = productsSelect.filter(productsSelect => productsSelect.id !== id)
+        }
+    }
+}
+
+function consultarInventario(id, stock){
+    const productoFiltrado = products.find(producto => producto.id===id)
+
+    return  productoFiltrado.stock - stock  >= 0
 }
 
 const productClear = (id) => {
