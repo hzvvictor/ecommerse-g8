@@ -40,7 +40,7 @@ let productos = [
     nombre: 'audifonos', 
     precio:50.00, 
     imagen:'../../images/samsung-phone.png',
-    catergoria:'asesorios',
+    categoria:'asesorios',
     cantidad:15
 },
 {
