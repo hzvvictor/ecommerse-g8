@@ -103,41 +103,47 @@
 
             <!-- ****************FIN CARD PRODUCTO************************ -->
 
-
         </section>
 
 
         <!-- MODAL DERCHO DEL CARRITO    (añadir o quitar hidden de la clase para mostrar ya está agregado animacion) -->
 
-        <aside id="contenedor__carrito" class="contenedor__carrito hidden">
+        <aside id="contenedor__carrito" class="contenedor__carrito ">
 
             <h3 class="carrito__title">
-                Productos
+                Productos                     <i class='bx bx-trash icontrash'></i>                        
+
             </h3>
 
 
             <div class="carrito__productos">
-                
+
                 <!--  *********    Articulo card  ******************* -->
-                <section id="art__card" class="art__card">
+
+         
+            </section>
+                <section data-id="1" data-category="audio" class="art__card">
                     <figure class="art__img">
-                        <img src="./assets/images/producto.png" alt="" class="img_art" id="img_art">
+                        <img src="assets/images/GalaxyS8_PCD.jpg" alt="" class="img_art" id="img_art">
                     </figure>
 
                     <content class="art__inf">
-                        <h4>WIRELESS HEADPHONES</h4>
+                        <h4>Titulo</h4>
                         <div class="art__decription">
-                            <span class="art__price">$40.99</span>
+                            <span class="art__price">40.00</span>
                         </div>
                         <div class="cart__amount">
-                            <div class="amount__btn cart-btn" id="cart-btnadd">-</div>
-                            <span class="art_cant" id="art_cant">Cant: 10</span>
-                            <div class="amount__btn cart-btn" id="cart-btnadd">+</div>
+                            <div class="amount__btn cart-btn rest">-</div>
+                            <span class="art_cant" id="art_cant">10</span>
+                            <div class="amount__btn cart-btn add">+</div>
                         </div>
                     </content>
 
-                </section>
+                    <div class="trashBx">
+                        <i class='bx bx-trash icontrash'></i>                        
 
+                    </div>
+                </section>
                 <!-- ************fin card articulo del carrito*********** -->
 
             </div>

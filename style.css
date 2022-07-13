@@ -457,3 +457,14 @@ h3 {
     gap: 0.7rem;
     /* line-height: 2rem; */
 }
+
+.icontrash{
+    padding: 1rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    transition: color 0.3s ease-in;
+}
+
+.icontrash:hover{
+    color: red;
+}

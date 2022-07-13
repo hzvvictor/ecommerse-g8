@@ -31,7 +31,69 @@ const products = [
         img: 'assets/images/samsung-phone.png',
         price: 50.00,
         stock: 15
-    }
+    },
+    {
+        id: 5,
+        title: 'audifonos',
+        category: 'asesorios',
+        img: 'assets/images/samsung-phone.png',
+        price: 50.00,
+        stock: 15
+    },
+    {
+        id: 6,
+        title: 'audifonos',
+        category: 'asesorios',
+        img: 'assets/images/samsung-phone.png',
+        price: 50.00,
+        stock: 15
+    },
+    {
+        id: 7,
+        title: 'audifonos',
+        category: 'asesorios',
+        img: 'assets/images/samsung-phone.png',
+        price: 50.00,
+        stock: 15
+    },
+    {
+        id: 8,
+        title: 'audifonos',
+        category: 'asesorios',
+        img: 'assets/images/samsung-phone.png',
+        price: 50.00,
+        stock: 15
+    },
+    
+    {
+        id: 9,
+        title: 'audifonos',
+        category: 'asesorios',
+        img: 'assets/images/samsung-phone.png',
+        price: 50.00,
+        stock: 15
+    },
+    
+    {
+        id: 10,
+        title: 'audifonos',
+        category: 'asesorios',
+        img: 'assets/images/samsung-phone.png',
+        price: 50.00,
+        stock: 15
+    },
+    
+    {
+        id: 11,
+        title: 'audifonos',
+        category: 'asesorios',
+        img: 'assets/images/samsung-phone.png',
+        price: 50.00,
+        stock: 15
+    },
+    
+    
+    
 ]
 
 export default products
