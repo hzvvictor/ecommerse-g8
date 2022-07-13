@@ -1,62 +1,103 @@
 import { cartShop } from './cart-elements.js'
 import products from '../database/index.js'
-
-// let products = []
 let cart = []
-const productsDOM = cartShop.cart.products
-const cartDOM = cartShop.products.cards
-console.log('contenedor productos sleccionados');
-console.log(productsDOM);
+const cartDOM = cartShop.cart.products
+const productsDOM = cartShop.products.cards
+
 /* 
  modal carrito => cartShopModal
 */
 function cartProductPrint() {
-    productsDOM.innerHTML = ""
+    cartDOM.innerHTML = ""
     let dibujar = ''
-    cart.forEach(({ id, title, category, img, price, stock }) => {
+    console.log('Elementos en carrito');
+    console.log(cart);
+    console.log('Elementos productos');
+    console.log(products);
+    cart.forEach(({ id, category, img, title, price, amount }) => {
+        console.log('dibujar en carrito a ' + title);
         const template =
             `<section data-id="${id}" data-category="${category}" class="art__card">
-        <figure class="art__img">
-            <img src="${img}" alt="" class="img_art" id="img_art">
-        </figure>
+            <figure class="art__img">
+                <img src="${img}" alt="" class="img_art" id="img_art">
+            </figure>
 
-        <content class="art__inf">
-            <h4>${title}</h4>
-            <div class="art__decription">
-                <span class="art__price">${price}</span>
-                <span class="art_cant" id="art_cant">Cant: ${stock}</span>
-            </div>
-        </content>
-
-        <div class="card__buy">
-            <div class="cart__amount">
-                <div class="amount__btn cart-btn" id="cart-btnadd">-</div>
-                <span>1</span>
-                <div class="amount__btn cart-btn" id="cart-btnadd">+</div>
-            </div>
-        </div>
-
-    </section>`
+            <content class="art__inf">
+                <h4>${title}</h4>
+                <div class="art__decription">
+                    <span class="art__price">${price}</span>
+                </div>
+                <div class="cart__amount">
+                    <div class="amount__btn cart-btn rest">-</div>
+                    <span class="art_cant" id="art_cant">${amount}</span>
+                    <div class="amount__btn cart-btn add">+</div>
+                </div>
+            </content>
+        </section>
+        `
         dibujar += template
     })
-    productsDOM.innerHTML = dibujar
+    cartDOM.innerHTML = dibujar
+}
+const cartProductPush = ({ id, category, img, title, price, amount }, amountAdd) => {
+    const productAdd = (
+        {
+            id,
+            category,
+            img,
+            title,
+            price,
+            amount
+        }
+    )
+    console.log('Se agrego a amount ' + amountAdd);
+    console.log(productAdd);
+    if (productAdd.amount) {
+        productAdd.amount += amountAdd
+    }
+    else {
+        productAdd.amount = amountAdd
+        cart.push(productAdd)
+    }
+}
+function consultarInventario(id, stock) {
+    const productoFiltrado = products.find(producto => producto.id === id)
+    return productoFiltrado.stock - stock >= 0
 }
 function cartProductAdd(id, amount) {
     let product;
-    product = cart.find(product => product.id == id)
+    product = cart.find(product => product.id == Number(id));
+    if (amount > products[Number(id) - 1].stock) {
+        alert('Ya no queda stock de ' + products[id].title)
+        return;
+    }
+
     if (product == undefined) {
-        product = products.find(product => product.id == id)
-        cart.push(productAdd)
+        product = products[Number(id) - 1]
+    }
+    console.log('Categoria ' + product.category);
+    const productAdd = (
+        {
+            id: product.id,
+            category: product.category,
+            img: product.img,
+            title: product.title,
+            price: product.price,
+            amount: product.amount
+        }
+    )
+    console.log('Se agrego a amount ' + amount);
+    console.log(productAdd);
+    if (productAdd.amount) {
+        product.amount += amount
     }
     else {
-        if (amount > products[id].stock) {
-            alert('Ya no queda stock de ' + products[id].title)
-            return;
-        }
-        products[id].stock -= amount
-
-        product.stock += amount
+        productAdd.amount = amount
+        cart.push(productAdd)
     }
+
+    products[Number(id) - 1].stock -= amount
+
 
     productPrint()
     cartProductPrint()
@@ -64,7 +105,8 @@ function cartProductAdd(id, amount) {
 function cartProductRemove(id) {
     let productIndex;
     productIndex = cart.findIndex(product => product.id == id)
-    cart.slice(productIndex, 1)
+
+    cart.splice(productIndex, 1)
 
     productPrint();
     cartProductPrint();
@@ -73,21 +115,15 @@ function cartProductRemove(id) {
 function cartProductRest(id, amount) {
     let product;
     product = cart.find(product => product.id == id)
-    if (product == undefined) {
-        product = products.find(product => product.id == id)
-        cart.push(productAdd)
+    if (amount >= product.amount) {
+        cartProductRemove(id)
     }
-    else {
-        /* Si lo que se restara de cantidad es igual o mayor del producto del carrito entonces lo remueve*/
-        if (amount >= product.stock) {
-            cartProductRemove(id)
-            return;
-        }
-        products[id].stock += amount
-        /* Simplemente resta y lo actualiza a dibujar */
-        product.stock -= amount
-
-    }
+    console.log('Producto a restar');
+    console.log(products[id]);
+    products[Number(id) - 1].stock += amount
+    /* Simplemente resta y lo actualiza a dibujar */
+    product.amount -= amount
+    
 
     productPrint();
     cartProductPrint();
@@ -105,12 +141,14 @@ const cartProductBuy = () => {
     cart.forEach(
         product => total += product.stock
     )
-    cartProductClear();
+    cart = []
+    cartDOM.innerHTML = ""
     alert('Gracias por su compra')
     return total
 }
 
 const productPrint = () => {
+    console.log(products);
     /* requiere de template de producto */
     let dibujar = ''
     console.log(`Productos :)`);
@@ -118,7 +156,7 @@ const productPrint = () => {
     products.forEach(({ id, title, category, img, price, stock }) => {
         console.log(`Dibujando a ${title}`);
         const template =
-        `<article class="prod__cardbuy" data-id="${id}" data-category="${category}">
+            `<article class="prod__cardbuy" data-id="${id}" data-category="${category}">
         <section class="prod__card">
             <div class="prod__img">
                 <img src="${img}" alt="">
@@ -129,9 +167,9 @@ const productPrint = () => {
                 <div class="prod__decription">
                     <span class="prod__price">${price}</span>
 
-                    <span class="prod__stock">
+                    <span>
                         | Stock:
-                        <span>${stock}</span>
+                        <span class="prod__stock">${stock}</span>
                     </span>
                 </div>
             </div>
@@ -140,7 +178,7 @@ const productPrint = () => {
         <section class="prod__buy">
             <div class="prod__amount">
                 <span class="amount__btn remove"><i class='bx bx-minus'></i></span>
-                <span class="cant_prod">1</span>
+                <input type="text" class="cant__prod" value="1">
                 <span class="amount__btn add"><i class='bx bx-plus'></i></span>
             </div>
             <span class="btn_buy" id="btn_buy">Buy</span>
@@ -148,7 +186,7 @@ const productPrint = () => {
     </article>`
         dibujar += template
     })
-    cartDOM.innerHTML = dibujar
+    productsDOM.innerHTML = dibujar
 }
 const productAdd = (id, amount) => {
 
@@ -163,8 +201,6 @@ const productClear = (id) => {
 }
 
 
-console.log(`cartDOM`);
-console.log(cartDOM);
 export {
     productPrint,
     cartProductPrint,
@@ -173,8 +209,8 @@ export {
     cartProductRest,
     cartProductClear,
     cartProductBuy,
-    products,
     productsDOM,
-    cart,
-    cartDOM
+    cartDOM,
+    products,
+    cart
 }

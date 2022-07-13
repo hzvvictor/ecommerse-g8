@@ -11,13 +11,45 @@ import {
     cartProductRest,
     cartProductClear,
     cartProductBuy,
-    products,
     productsDOM,
-    cart,
-    cartDOM
+    cartDOM,
+    products,
+    cart
 } from './components/cart-shop.js'
-// productPrint()
 
+productPrint()
+/* console.log('productsDOM');
+console.log(productsDOM);
+console.log('cartDOM');
+console.log(cartDOM); */
+productsDOM.addEventListener('click', (e) => {
+    if (e.target.matches('.btn_buy')) {
+        let id = e.target.parentElement.parentElement.getAttribute('data-id')
+        id = Number(id)
+        let amount = e.target.parentElement.querySelector('.cant__prod')
+        amount = Number(amount.value)
+        console.log(`ID => ${id}`);
+        console.log(`amount => ${amount}`);
+        cartProductAdd(id, amount)
+        /* alert('Comprar') */
+
+        // cartProductAdd()
+    }
+})
+
+cartDOM.addEventListener('click', (e) => {
+    if (e.target.matches('.add')) {
+        // alert('agregar')
+
+        let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id')
+        id = Number(id)
+        cartProductAdd(id, 1)
+    } else if (e.target.matches('.rest')) {
+        let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id')
+        id = Number(id)
+        cartProductRest(id, 1)
+    }
+})
 // console.log(products);
 
 
