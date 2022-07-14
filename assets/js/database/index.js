@@ -2,19 +2,19 @@
 const productos = [
     {
         id: 1,
-        title: 'smartphone',
-        category: 'telefono mobile',
-        img: 'assets/images/headphone.jpg',
+        title: 'Smartphone',
+        category: 'mobile phone',
+        img: 'assets/images/samsung-phone.jpg',
         price: 950.00,
         stock: 20
     },
     {
         id: 2,
-        title: 'computadora',
-        category: 'laptop',
-        img: 'assets/images/laptop.png',
-        price: 450.00,
-        stock: 30
+        title: 'Iphone',
+        category: 'mobile phone',
+        img: 'assets/images/iphone-13-pro-.jpg',
+        price: 50.00,
+        stock: 15
     },
     {
         id: 3,
@@ -26,74 +26,60 @@ const productos = [
     },
     {
         id: 4,
-        title: 'audifonos',
-        category: 'asesorios',
-        img: 'assets/images/samsung-phone.png',
-        price: 50.00,
-        stock: 15
+        title: 'Computer',
+        category: 'laptop',
+        img: 'assets/images/portatil hp.png',
+        price: 450.00,
+        stock: 30
     },
     {
         id: 5,
-        title: 'audifonos',
+        title: 'Huawei portatil',
         category: 'asesorios',
-        img: 'assets/images/samsung-phone.png',
+        img: 'assets/images/huawei portatil.jpg',
         price: 50.00,
         stock: 15
     },
     {
         id: 6,
-        title: 'audifonos',
+        title: 'Air pods',
         category: 'asesorios',
-        img: 'assets/images/samsung-phone.png',
+        img: 'assets/images/airpods.jpg',
         price: 50.00,
         stock: 15
     },
     {
         id: 7,
-        title: 'audifonos',
+        title: 'Head phone',
         category: 'asesorios',
-        img: 'assets/images/samsung-phone.png',
+        img: 'assets/images/headphone.png',
         price: 50.00,
         stock: 15
     },
     {
         id: 8,
-        title: 'audifonos',
+        title: 'Headset',
         category: 'asesorios',
-        img: 'assets/images/samsung-phone.png',
+        img: 'assets/images/producto.png',
         price: 50.00,
         stock: 15
-    },
-    
-    {
-        id: 9,
-        title: 'audifonos',
-        category: 'asesorios',
-        img: 'assets/images/samsung-phone.png',
-        price: 50.00,
-        stock: 15
-    },
-    
+    },   
     {
         id: 10,
-        title: 'audifonos',
+        title: 'SmartWatch',
         category: 'asesorios',
-        img: 'assets/images/samsung-phone.png',
+        img: 'assets/images/smartwhachXiaomi.png',
         price: 50.00,
         stock: 15
     },
-    
     {
         id: 11,
-        title: 'audifonos',
+        title: 'Apple Watch',
         category: 'asesorios',
-        img: 'assets/images/samsung-phone.png',
+        img: 'assets/images/appleWatch.png',
         price: 50.00,
         stock: 15
-    },
-    
-    
-    
+    }    
 ]
 
 // en este m+odulo exportamos el arreglo de objetos(productos)
