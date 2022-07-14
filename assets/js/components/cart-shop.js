@@ -33,6 +33,11 @@ function cartProductPrint() {
                     <div class="amount__btn cart-btn add">+</div>
                 </div>
             </content>
+
+            <div class="trashBx">
+                <i class='bx bx-trash icontrash'></i>                        
+
+            </div>
         </section>
         `
         dibujar += template
@@ -125,7 +130,7 @@ function cartProductRest(id, amount) {
     products[Number(id) - 1].stock += amount
     /* Simplemente resta y lo actualiza a dibujar */
     product.amount -= amount
-    
+
 
     productPrint();
     cartProductPrint();
