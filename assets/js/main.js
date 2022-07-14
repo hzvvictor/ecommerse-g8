@@ -14,7 +14,8 @@ import {
     productsDOM,
     cartDOM,
     products,
-    cart
+    cart,
+    cartShop
 } from './components/cart-shop.js'
 
 productPrint()
@@ -45,9 +46,18 @@ cartDOM.addEventListener('click', (e) => {
         let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id')
         cartProductRemove(id)
     }
+
 })
 
-// console.log(products);
+const trashTodo=cartShop.cart.modal
+    trashTodo.addEventListener('click',(e)=>{
+        console.log(e.target.id);
+        if(e.target.id=='incontrashGlobal'){
+            cartProductClear()
+            console.log(cart)
+        }
+
+    })
 
 
 /* base de datos**/

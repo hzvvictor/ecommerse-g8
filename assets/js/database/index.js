@@ -1,5 +1,5 @@
 
-const products = [
+const productos = [
     {
         id: 1,
         title: 'smartphone',
@@ -96,4 +96,6 @@ const products = [
     
 ]
 
-export default products
+// en este m+odulo exportamos el arreglo de objetos(productos)
+// tenemos que importar en productos.js
+export default productos

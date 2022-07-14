@@ -75,6 +75,7 @@ function cartProductAdd(id, amount) {
     if (product == undefined) {
         product = products[Number(id) - 1]
     }
+
     console.log('Categoria ' + product.category);
     const productAdd = (
         {
@@ -129,11 +130,14 @@ function cartProductRest(id, amount) {
     cartProductPrint();
 }
 function cartProductClear() {
-    cart.forEach(({ id, stock }) => {
-        products[id].stock += stock
+    cart.forEach(({ id, amount }) => {
+        products[+id-1].stock += amount
+        
     })
     cart = []
     cartDOM.innerHTML = ""
+    productPrint();
+    cartProductPrint();
 }
 const cartProductBuy = () => {
     let total
@@ -188,17 +192,6 @@ const productPrint = () => {
     })
     productsDOM.innerHTML = dibujar
 }
-const productAdd = (id, amount) => {
-
-    productPrint()
-}
-const productRemove = (id, amount) => {
-
-    productPrint()
-}
-const productClear = (id) => {
-
-}
 
 
 export {
@@ -212,5 +205,6 @@ export {
     productsDOM,
     cartDOM,
     products,
-    cart
+    cart,
+    cartShop
 }
