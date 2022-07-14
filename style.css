@@ -301,6 +301,7 @@ body {
     text-align: center;
     border-radius: 15px;
     box-shadow: -21px 18px 10px -5px #9595d16e;
+    z-index: 1;
 }
 
 /* *****************************************************/

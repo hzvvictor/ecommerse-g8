@@ -18,22 +18,15 @@ import {
 } from './components/cart-shop.js'
 
 productPrint()
-/* console.log('productsDOM');
-console.log(productsDOM);
-console.log('cartDOM');
-console.log(cartDOM); */
+
 productsDOM.addEventListener('click', (e) => {
     if (e.target.matches('.btn_buy')) {
         let id = e.target.parentElement.parentElement.getAttribute('data-id')
         id = Number(id)
         let amount = e.target.parentElement.querySelector('.cant__prod')
         amount = Number(amount.value)
-        console.log(`ID => ${id}`);
-        console.log(`amount => ${amount}`);
-        cartProductAdd(id, amount)
-        /* alert('Comprar') */
 
-        // cartProductAdd()
+        cartProductAdd(id, amount)
     }
 })
 
@@ -48,8 +41,12 @@ cartDOM.addEventListener('click', (e) => {
         let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id')
         id = Number(id)
         cartProductRest(id, 1)
+    } else if (e.target.matches('.icontrash')) {
+        let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id')
+        cartProductRemove(id)
     }
 })
+
 // console.log(products);
 
 

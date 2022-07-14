@@ -22,6 +22,7 @@ const cartShop = {
     }
 }
 
+
 const toggleCartModal = () => {
     const toggle = myCSS.toggleClass(cartShop.cart.modal, 'hidden')
     // console.log(`toggle ${toggle} 'hidden'`);
