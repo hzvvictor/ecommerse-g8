@@ -1,3 +1,9 @@
+import items from '..database/index.js'
+console.log(items)
+
+
+
+
 // import productos from '../database/index.js'
 // import data from '../database/index.js'
 

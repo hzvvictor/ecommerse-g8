@@ -1,10 +1,12 @@
 'use-strict'
 import myCSS from "./mycss.js"
 
+
 const nav = document.getElementById('nav')
 const nav__icons = document.getElementById('nav__icons')
 const cartModal = document.getElementById('contenedor__carrito')
 const prod__cards = document.querySelector('.prod__cards')
+const trash_icon=document.querySelector('.contenedor__carrito .icontrash')
 
 const cartShop = {
     nav__icons: nav__icons,
@@ -118,6 +120,8 @@ const productsInputEvents = () => {
         }
         if (input.value > 1) --input.value
     })
+
+
 }
 
 productsInputEvents();
