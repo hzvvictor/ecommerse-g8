@@ -6,7 +6,7 @@ const nav = document.getElementById('nav')
 const nav__icons = document.getElementById('nav__icons')
 const cartModal = document.getElementById('contenedor__carrito')
 const prod__cards = document.querySelector('.prod__cards')
-const trash_icon=document.querySelector('.contenedor__carrito .icontrash')
+const trash_icon = document.querySelector('.contenedor__carrito .icontrash')
 
 const cartShop = {
     nav__icons: nav__icons,
@@ -27,7 +27,6 @@ const cartShop = {
 
 const toggleCartModal = () => {
     const toggle = myCSS.toggleClass(cartShop.cart.modal, 'contenedor__carrito--hidden')
-    // console.log(`toggle ${toggle} 'hidden'`);
 }
 cartShop.cart.icon.addEventListener(
     'click', () => toggleCartModal()
@@ -45,13 +44,14 @@ const inputsoloNumeros = (e) => {
 
 const productsInputEvents = () => {
 
-    const getStockActual = (e, el) => {
-        const prod__decription = e? e.target.parentElement.parentElement.previousElementSibling :el.previousElementSibling
-        console.log({el,p: el.previousElementSibling});
-        const prod__stock = prod__decription.querySelector('.prod__stock')
+    const getStockActual = (e, parentToUp) => {
+        for (let i = 0; i < parentToUp; i++) {
+            e = e.parentElement
+        }
+        const prod__card = e.previousElementSibling
+        const prod__stock = prod__card.querySelector('.prod__stock')
         const stock = Number(prod__stock.textContent)
-        // console.log(prod__stock);
-        return { prod__decription, prod__stock, stock }
+        return { prod__card, prod__stock, stock }
     }
     /* Captura el teclado */
     cartShop.products.cards.addEventListener('keydown', (e) => {
@@ -64,7 +64,6 @@ const productsInputEvents = () => {
             right:      39 
             down:       40 
         */
-        // console.log(e.keyCode);
         let value
         switch (e.keyCode) {
             case 38:
@@ -76,7 +75,7 @@ const productsInputEvents = () => {
                 value = -1
                 break;
         }
-        const { stock } = getStockActual(e)
+        const { stock } = getStockActual(e.target, 2)
         value = Number(e.target.value) + (value)
         if ((value > 0 && value <= stock))
             e.target.value = value
@@ -93,10 +92,9 @@ const productsInputEvents = () => {
             console.log('not is prod input');
             return;
         }
-        const { stock } = getStockActual(e);
+        const { stock } = getStockActual(e.target, 2);
 
         let value = Number(e.target.value.slice(-2))
-        // console.log(`if (${value} > ${stock})`);
         if (!value) value = 1
         else if (value > stock) value = e.target.value.slice(-1)
 
@@ -104,15 +102,11 @@ const productsInputEvents = () => {
     })
     /* Captura los botones de agregar y sumar */
     cartShop.products.cards.addEventListener('click', (e) => {
-        console.log(e.target);
         const parentElement = e.target.parentElement
         if (parentElement.matches(".amount__btn") == false)
             return;
-        console.log({ parentElement });
-        const prod__buy = parentElement.parentElement.parentElement
-        const { stock } = getStockActual(false, prod__buy )
-
-        const input = prod__buy.querySelector('.cant__prod')
+        const {  stock } = getStockActual(e.target, 4)
+        const input = e.target.parentElement.previousElementSibling
         console.log({ input });
         if (parentElement.matches('.add') && input.value < stock) {
             input.value = Number(input.value) + 1

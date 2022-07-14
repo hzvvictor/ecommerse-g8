@@ -44,22 +44,23 @@ cartDOM.addEventListener('click', (e) => {
         id = Number(id)
         cartProductRest(id, 1)
     } else if (e.target.matches('.icontrash')) {
-        let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id')
+        let id = e.target.parentElement.parentElement.getAttribute('data-id')
+        alert('remover a ' + id)
         cartProductRemove(id)
     }
 
 })
 
-const trashTodo=cartShop.cart.modal
-    trashTodo.addEventListener('click',(e)=>{
-        console.log(e.target.id);
-        if(e.target.id=='incontrashGlobal'){
-            cartProductClear()
-        }else if (e.target.matches('#checkoutButton')){
+const trashTodo = cartShop.cart.modal
+trashTodo.addEventListener('click', (e) => {
+    console.log(e.target.id);
+    if (e.target.id == 'incontrashGlobal') {
+        cartProductClear()
+    } else if (e.target.matches('#checkoutButton')) {
         cartProductBuy()
     }
 
-    })
+})
 
 
 /* base de datos**/
