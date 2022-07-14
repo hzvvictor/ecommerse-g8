@@ -76,7 +76,7 @@ const productos = [
         id: 11,
         title: 'Apple Watch',
         category: 'asesorios',
-        img: 'assets/images/appleWatch.png',
+        img: 'assets/images/appleWhatch.png',
         price: 50.00,
         stock: 15
     }    
