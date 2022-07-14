@@ -4,7 +4,7 @@ const productos = [
         id: 1,
         title: 'Smartphone',
         category: 'mobile phone',
-        img: 'assets/images/samsung-phone.jpg',
+        img: 'assets/images/samsung-phone.png',
         price: 950.00,
         stock: 20
     },
@@ -28,7 +28,7 @@ const productos = [
         id: 4,
         title: 'Computer',
         category: 'laptop',
-        img: 'assets/images/portatil hp.png',
+        img: 'assets/images/portatil-hp.jpg',
         price: 450.00,
         stock: 30
     },
@@ -36,7 +36,7 @@ const productos = [
         id: 5,
         title: 'Huawei portatil',
         category: 'asesorios',
-        img: 'assets/images/huawei portatil.jpg',
+        img: 'assets/images/huawei-portatil.png',
         price: 50.00,
         stock: 15
     },
@@ -52,7 +52,7 @@ const productos = [
         id: 7,
         title: 'Head phone',
         category: 'asesorios',
-        img: 'assets/images/headphone.png',
+        img: 'assets/images/headphone.jpg',
         price: 50.00,
         stock: 15
     },
@@ -68,7 +68,7 @@ const productos = [
         id: 10,
         title: 'SmartWatch',
         category: 'asesorios',
-        img: 'assets/images/smartwhachXiaomi.png',
+        img: 'assets/images/smartwhatchXiaomi.jpg',
         price: 50.00,
         stock: 15
     },
@@ -76,7 +76,7 @@ const productos = [
         id: 11,
         title: 'Apple Watch',
         category: 'asesorios',
-        img: 'assets/images/appleWatch.png',
+        img: 'assets/images/appleWhatch.png',
         price: 50.00,
         stock: 15
     }    
