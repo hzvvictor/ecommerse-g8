@@ -43,6 +43,7 @@ function cartProductPrint() {
         dibujar += template
     })
     cartDOM.innerHTML = dibujar
+    totalCheckout(cart)
 }
 const cartProductPush = ({ id, category, img, title, price, amount }, amountAdd) => {
     const productAdd = (
@@ -145,14 +146,11 @@ function cartProductClear() {
     cartProductPrint();
 }
 const cartProductBuy = () => {
-    let total
-
-    cart.forEach(
-        product => total += (product.price * product.amount)
-    )
+    let total = cart.map(x =>x.price*x.amount).reduce((z,y) => z+y)
+    console.log(products)
     cart = []
     cartDOM.innerHTML = ""
-    alert('Gracias por su compra')
+    alert(`Gracias por su compra, su total fue $${total}`)
     return total
 }
 
@@ -198,6 +196,11 @@ const productPrint = () => {
     productsDOM.innerHTML = dibujar
 }
 
+const totalCheckout = (cart) =>{
+let total = cart.map(x =>x.price*x.amount).reduce((z,y) => z+y)
+document.getElementById('total-print').innerHTML = `  $${total}`
+}
+
 
 export {
     productPrint,
@@ -211,5 +214,5 @@ export {
     cartDOM,
     products,
     cart,
-    cartShop
+    cartShop,
 }

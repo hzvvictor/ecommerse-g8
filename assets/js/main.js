@@ -15,10 +15,11 @@ import {
     cartDOM,
     products,
     cart,
-    cartShop
+    cartShop,
 } from './components/cart-shop.js'
 
 productPrint()
+
 
 productsDOM.addEventListener('click', (e) => {
     if (e.target.matches('.btn_buy')) {
@@ -54,8 +55,9 @@ const trashTodo=cartShop.cart.modal
         console.log(e.target.id);
         if(e.target.id=='incontrashGlobal'){
             cartProductClear()
-            console.log(cart)
-        }
+        }else if (e.target.matches('#checkoutButton')){
+        cartProductBuy()
+    }
 
     })
 

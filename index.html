@@ -35,7 +35,15 @@
             <i cart class='bx bx-cart'></i>
         </div>
     </header>
-    <main>
+    <div class="home">
+        <div class="img__home">
+        </div>
+        
+        <div class="home__text">
+            Ecommerce 
+        </div>
+    </div>
+    <main id="main">
         <div>
         </div>
         <section class="categorys">
@@ -111,7 +119,7 @@
         <aside id="contenedor__carrito" class="contenedor__carrito">
 
             <h3 class="carrito__title" id="trashglobal">
-                Productos<i class='bx bx-trash icontrash' id="incontrashGlobal"></i>                        
+                Productos<i class='bx bx-trash icontrash' id="incontrashGlobal"></i>
 
             </h3>
 
@@ -120,8 +128,8 @@
 
                 <!--  *********    Articulo card  ******************* -->
 
-         
-            </section>
+
+                </section>
                 <section data-id="1" data-category="audio" class="art__card">
                     <figure class="art__img">
                         <img src="assets/images/GalaxyS8_PCD.jpg" alt="" class="img_art" id="img_art">
@@ -140,7 +148,7 @@
                     </content>
 
                     <div class="trashBx">
-                        <i class='bx bx-trash icontrash'></i>                        
+                        <i class='bx bx-trash icontrash'></i>
 
                     </div>
                 </section>
@@ -152,6 +160,8 @@
             <!-- <span class="btn_buy" id="btn_buy">Buy</span> -->
 
             </div>
+            <p class="checkout-total">total:<span id="total-print"></span></p>
+            <button class="checkout-button" id="checkoutButton">Checkout</button>
         </aside>
 
         <!-- ***************************fin modal carrito********************** -->
