@@ -4,18 +4,10 @@ let cart = []
 const cartDOM = cartShop.cart.products
 const productsDOM = cartShop.products.cards
 
-/* 
- modal carrito => cartShopModal
-*/
 function cartProductPrint() {
     cartDOM.innerHTML = ""
     let dibujar = ''
-    console.log('Elementos en carrito');
-    console.log(cart);
-    console.log('Elementos productos');
-    console.log(products);
-    cart.forEach(({ id, category, img, title, price, amount }) => {
-        console.log('dibujar en carrito a ' + title);
+    if (cart) cart.forEach(({ id, category, img, title, price, amount }) => {
         const template =
             `<section data-id="${id}" data-category="${category}" class="art__card">
             <figure class="art__img">
@@ -45,31 +37,6 @@ function cartProductPrint() {
     cartDOM.innerHTML = dibujar
     totalCheckout(cart)
 }
-const cartProductPush = ({ id, category, img, title, price, amount }, amountAdd) => {
-    const productAdd = (
-        {
-            id,
-            category,
-            img,
-            title,
-            price,
-            amount
-        }
-    )
-    console.log('Se agrego a amount ' + amountAdd);
-    console.log(productAdd);
-    if (productAdd.amount) {
-        productAdd.amount += amountAdd
-    }
-    else {
-        productAdd.amount = amountAdd
-        cart.push(productAdd)
-    }
-}
-function consultarInventario(id, stock) {
-    const productoFiltrado = products.find(producto => producto.id === id)
-    return productoFiltrado.stock - stock >= 0
-}
 function cartProductAdd(id, amount) {
     let product;
     product = cart.find(product => product.id == Number(id));
@@ -82,7 +49,6 @@ function cartProductAdd(id, amount) {
         product = products[Number(id) - 1]
     }
 
-    console.log('Categoria ' + product.category);
     const productAdd = (
         {
             id: product.id,
@@ -93,8 +59,6 @@ function cartProductAdd(id, amount) {
             amount: product.amount
         }
     )
-    console.log('Se agrego a amount ' + amount);
-    console.log(productAdd);
     if (productAdd.amount) {
         product.amount += amount
     }
@@ -118,17 +82,13 @@ function cartProductRemove(id) {
     productPrint();
     cartProductPrint();
 }
-
 function cartProductRest(id, amount) {
     let product;
     product = cart.find(product => product.id == id)
     if (amount >= product.amount) {
         cartProductRemove(id)
     }
-    console.log('Producto a restar');
-    console.log(products[id]);
     products[Number(id) - 1].stock += amount
-    /* Simplemente resta y lo actualiza a dibujar */
     product.amount -= amount
 
 
@@ -137,8 +97,8 @@ function cartProductRest(id, amount) {
 }
 function cartProductClear() {
     cart.forEach(({ id, amount }) => {
-        products[+id-1].stock += amount
-        
+        products[+id - 1].stock += amount
+
     })
     cart = []
     cartDOM.innerHTML = ""
@@ -146,7 +106,7 @@ function cartProductClear() {
     cartProductPrint();
 }
 const cartProductBuy = () => {
-    let total = cart.map(x =>x.price*x.amount).reduce((z,y) => z+y)
+    let total = cart.map(x => x.price * x.amount).reduce((z, y) => z + y)
     console.log(products)
     cart = []
     cartDOM.innerHTML = ""
@@ -155,13 +115,9 @@ const cartProductBuy = () => {
 }
 
 const productPrint = () => {
-    console.log(products);
     /* requiere de template de producto */
     let dibujar = ''
-    console.log(`Productos :)`);
-    console.log(products);
     products.forEach(({ id, title, category, img, price, stock }) => {
-        console.log(`Dibujando a ${title}`);
         const template =
             `<article class="prod__cardbuy" data-id="${id}" data-category="${category}">
         <section class="prod__card">
@@ -196,9 +152,11 @@ const productPrint = () => {
     productsDOM.innerHTML = dibujar
 }
 
-const totalCheckout = (cart) =>{
-let total = cart.map(x =>x.price*x.amount).reduce((z,y) => z+y)
-document.getElementById('total-print').innerHTML = `  $${total}`
+const totalCheckout = (cart) => {
+    console.log(`[[[[[[[[[cart]]]]]]]]]`);
+    console.log(cart);
+    let total = cart.length > 0 ? cart.map(x => x.price * x.amount).reduce((z, y) => z + y) : 0
+    document.getElementById('total-print').innerHTML = `  $${total}`
 }
 
 

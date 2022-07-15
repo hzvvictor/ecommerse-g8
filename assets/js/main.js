@@ -45,7 +45,6 @@ cartDOM.addEventListener('click', (e) => {
         cartProductRest(id, 1)
     } else if (e.target.matches('.icontrash')) {
         let id = e.target.parentElement.parentElement.getAttribute('data-id')
-        alert('remover a ' + id)
         cartProductRemove(id)
     }
 

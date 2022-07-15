@@ -105,7 +105,7 @@ const productsInputEvents = () => {
         const parentElement = e.target.parentElement
         if (parentElement.matches(".amount__btn") == false)
             return;
-        const {  stock } = getStockActual(e.target, 4)
+        const {  stock } = getStockActual(e.target, 3)
         const input = e.target.parentElement.previousElementSibling
         console.log({ input });
         if (parentElement.matches('.add') && input.value < stock) {
