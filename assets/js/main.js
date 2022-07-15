@@ -60,6 +60,7 @@ trashTodo.addEventListener('click', (e) => {
 
 })
 
+<<<<<<< HEAD
 mixitup('.prod__cards', {
     selectors:{
         target:`.prod__cardbuy`
@@ -105,4 +106,18 @@ mixitup('.prod__cards', {
     }
 }).filter('.asesorios')
 
+=======
+const theme__document = document.getElementById('theme__document')
+const link__style = document.head.querySelector('#style')
+theme__document.addEventListener('click', () => {
+    const styles = {
+        default: 'style.css',
+        dark: 'style-dark.css'
+    }
+    if (link__style.getAttribute('href') == styles.default)
+        link__style.setAttribute('href', styles.dark)
+    else
+        link__style.setAttribute('href', styles.default)
+})
+>>>>>>> 27befcec0d0aa144bb054ce7330a631790bbb249
 /* base de datos**/
