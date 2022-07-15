@@ -117,7 +117,7 @@ const productPrint = () => {
     /* requiere de template de producto */
     let dibujar = ''
     products.forEach(({ id, title, category, img, price, stock }) => {
-        if (filter && category == filter) return;
+        if (filter && category != filter) return;
         const template =
             `<article class="prod__cardbuy mix ${category}" data-id="${id}" data-category="${category}">
         <section class="prod__card">
