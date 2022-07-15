@@ -7,7 +7,7 @@
 }
 
 :root {
-  --background-color: rgb(20, 19, 19);
+  --background-color: rgb(40, 0, 0);
   --primary-color: #151e21c2;
   --secondary-color: #203006;
   --tertiary-color: white;
@@ -75,19 +75,25 @@ main {
 }
 
 /* ************ | NAV CSS | ***************  */
+header {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  background-color: var(--primary-color);
+  justify-content: center;
+}
+
 .header {
   background-color: var(--primary-color);
   display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
   font-size: 1.07rem;
-  justify-content: space-between;
   text-transform: uppercase;
   padding-inline: 3rem;
-  z-index: 100;
-  position: absolute;
   width: 100%;
-  top: 0;
+  max-width: 1024px;
+  justify-content: center;
 }
 
 .nav__utilidades {
@@ -96,6 +102,7 @@ main {
   height: var(--nav--height);
   align-content: center;
   align-items: center;
+  /* box-shadow: 0 0 40px -5px; */
 }
 
 .nav__utilidades a {
@@ -123,7 +130,9 @@ main {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding-right: 20px;
+  padding: 0 20px;
+  margin-left: auto;
+  /* box-shadow: 0 0 40px -5px; */
 }
 
 .nav__icons i {
@@ -133,6 +142,22 @@ main {
 /* ************ | CARD CSS | ***************  */
 .prod__cardbuy {
   position: relative;
+}
+
+.prod__cards>* {
+  max-width: 10px;
+  margin: 0 60px;
+  transition: transform 0.2s, max-width 0.3s, opacity 0.7s;
+  transform: rotate(180deg) scale(0.1) rotateZ(-80deg);
+  /* transform: scale(0.1) translateX(-0rem); */
+  opacity: 0.3;
+}
+
+.prod__cards--animation>* {
+  margin: 0;
+  max-width: none;
+  transform: unset;
+  opacity: 1;
 }
 
 .prod__cards {
@@ -173,39 +198,34 @@ main {
   position: relative;
   border-radius: 5px;
   background: var(--fondo-dark-card);
-  box-shadow: -12px 1px 7px -3px #217cb336;
+  box-shadow: 4px 2px 10px 0px #b677ddad, inset -3px -11px 49px 12px #bd498a21;
   outline: 1px solid #7773;
-  border: 0.5rem solid rgb(52, 44, 80);
+  border: 0.5rem solid rgb(138, 10, 70);
 }
 
 .prod__card:hover .prod__img::before {
   /* background: #a4c4dd; */
-  transform: skewY(20deg);
+  /* 
+  top: 9%;
+  width: 100%;
+  height: 9rem;
   border-radius: unset;
   animation-name: prod__img--before;
+  box-shadow: -3px -2px 10px 10px #ffaaaa7a; */
+  transform: skewY(20deg);
+  box-shadow: inset -3px -11px 49px 12px #842d3dab, 3px 0px 31px 15px #8d3e8d;
 }
 
 .prod__img::before {
   content: "";
   position: absolute;
-  top: 9%;
-  width: 100%;
-  height: 9rem;
-  transform: rotateZ(8deg);
+  top: 0%;
+  width: 120%;
+  height: 100%;
+  /* transform: rotateX(1208deg); */
   transition: transform 0.5s;
-  /* border-radius: 50%; */
   background: rgba(13, 5, 103, 0.467);
-  box-shadow: -3px -9px 10px 10px #aaddff7a;
 
-  /*     content: '';
-    position: absolute;
-    top: 0%;
-    width: 100%;
-    height: 100%;
-    background: ;
-    transform: scale(0.7);
-    transition: 0.5s;
-    box-shadow: -4px -9px 10px 10px #adf; */
 }
 
 /* .prod__card:hover .prod__img {
@@ -221,12 +241,18 @@ main {
   overflow: hidden;
 }
 
+.prod__card:hover img {
+  transform: scaleX(0.7) scaleY(0.7);
+}
+
 .prod__img img {
   width: auto;
   height: 100%;
   position: absolute;
-  transform: scaleX(0.7) scaleY(0.7);
+  transform: scaleX(0.5) scaleY(0.5) rotate3d(-1, 0, -1, 9deg);
+  transition: transform 0.3s;
 }
+
 
 .prod__info,
 .prod__buy {
@@ -257,7 +283,7 @@ main {
   text-shadow: 0px 0px 1px;
   width: 100%;
   padding: 3px 0;
-  color: greenyellow;
+  color: rgb(153, 236, 245);
   border-bottom: 2px solid blue;
 }
 
@@ -288,6 +314,7 @@ main {
   cursor: pointer;
   background-color: black;
   color: #eef;
+  border-top: 4px solid #ADF; 
 }
 
 .prod__buy .btn_buy:hover {
@@ -305,7 +332,9 @@ main {
   background-color: black;
   color: white;
 }
-
+.prod__amount .cant__prod {
+  background-color: transparent;
+}
 .prod__amount {
   padding-top: 5px;
   display: flex;
@@ -336,21 +365,20 @@ main {
   line-height: 25px;
   transition: background-color 0.3s ease-in-out;
   background-color: rgb(42, 37, 37);
-  box-shadow: 0px 1px 3px greenyellow;
+  box-shadow: 0px 1px 3px rgb(153, 236, 245);
 }
 
 .amount__btn:hover {
   background-color: black;
-  color: greenyellow;
+  color: rgb(153, 236, 245);
 }
 
 .prod__cards .prod__buy {
   text-align: center;
   border-radius: 0 0 10px 10px;
-
   z-index: 1;
-  background-color: rgb(157, 16, 30);
-  box-shadow: -15px 3px 10px -5px #9595d16e;
+  /* background-color: rgb(157, 16, 30); */
+  box-shadow: 4px 2px 10px 0px #b677ddad;
 }
 
 /* h3 {
@@ -385,7 +413,7 @@ main {
   top: -100%;
 }
 
-.contenedor__carrito > .carrito__title {
+.contenedor__carrito>.carrito__title {
   width: 100%;
   position: relative;
   left: 0;
@@ -398,8 +426,8 @@ main {
   padding: 1.2rem;
   justify-content: space-around;
   background-color: #f6c8c81a;
-  border-top: 4px solid greenyellow;
-  border-bottom: 4px solid greenyellow;
+  border-top: 4px solid rgb(153, 236, 245);
+  border-bottom: 4px solid rgb(153, 236, 245);
   text-shadow: 1px 1px 2px #ccc;
 }
 
@@ -412,7 +440,7 @@ main {
   font-size: 1.1em;
   transition: color 0.3s ease-in;
   background-color: transparent;
-  color: greenyellow;
+  color: rgb(153, 236, 245);
   border-radius: 50%;
   padding: 4px;
   transition: background-color 0.3s;
@@ -473,19 +501,19 @@ main {
 .category .description {
   display: block;
   padding-top: 10px;
-  border-bottom: 6px dotted greenyellow;
+  border-bottom: 6px dotted rgb(153, 236, 245);
   padding-bottom: 20px;
 }
 
-input[name="category"]:checked + .description {
+input[name="category"]:checked+.description {
   color: white;
   /* background: var(--color-catClicked); */
   transition: border 0.3s ease-in-out;
   /* background-color: #ccc4; */
-  border-bottom: 4px solid greenyellow;
+  border-bottom: 4px solid rgb(153, 236, 245);
 }
 
-input[name="category"]:checked + .description .category__title {
+input[name="category"]:checked+.description .category__title {
   text-transform: uppercase;
 }
 
@@ -527,7 +555,7 @@ input[name="category"]:checked + .description .category__title {
 .art__card {
   display: flex;
   flex-direction: row;
-  box-shadow: 2px 3px 4px 2px greenyellow;
+  box-shadow: 2px 3px 4px 2px rgb(153, 236, 245);
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -582,4 +610,8 @@ input[name="category"]:checked + .description .category__title {
 .checkout {
   padding: 17px;
   text-transform: uppercase;
+}
+
+.footer__text {
+  padding: 15px 0px;
 }
