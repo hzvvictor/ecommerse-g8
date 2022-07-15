@@ -46,32 +46,39 @@
     <main id="main">
         <div>
         </div>
-        <section class="categorys">
-            <div class="category">
+        <section class="categorys" >
+            <div class="category" data-filter="all">
                 <input type="radio" name="category" class="hidden" id="category:1">
                 <label for="category:1" class="description" id="categoria1">
                     <span class="category__title">Show All</span>
                     <span class="category__subtitle">show all products</span>
                 </label>
             </div>
-            <div class="category">
+            <div class="category" data-filter=".mobile_phone">
                 <input type="radio" name="category" class="hidden" id="category:2">
                 <label for="category:2" class="description">
-                    <span class="category__title">Hoodies</span>
+                    <span class="category__title">Telefonos Celulares</span>
                     <span class="category__subtitle">3 products</span>
                 </label>
             </div>
-            <div class="category">
+            <div class="category" data-filter=".tablet">
                 <input type="radio" name="category" class="hidden" id="category:3">
                 <label for="category:3" class="description">
-                    <span class="category__title">Shirts</span>
+                    <span class="category__title">Tablets</span>
                     <span class="category__subtitle">5 products</span>
                 </label>
             </div>
-            <div class="category">
+            <div class="category" data-filter=".laptop">
                 <input type="radio" name="category" class="hidden" id="category:4">
                 <label for="category:4" class="description">
-                    <span class="category__title">Swetshirt</span>
+                    <span class="category__title">Laptops</span>
+                    <span class="category__subtitle">10 products</span>
+                </label>
+            </div>
+            <div class="category" data-filter=".asesorios">
+                <input type="radio" name="category" class="hidden" id="category:5">
+                <label for="category:5" class="description">
+                    <span class="category__title">Accesorios</span>
                     <span class="category__subtitle">10 products</span>
                 </label>
             </div>
@@ -173,6 +180,8 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./assets/js/main.js" type="module"></script>
     <script src="assets/js/animaciones.js"></script>
+    <script src="assets/js/animaciones.js"></script>
+    <script src="https://unpkg.com/mixitup@3.3.0/dist/mixitup.js"></script>
 </body>
 
 </html>

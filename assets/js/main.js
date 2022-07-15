@@ -60,5 +60,49 @@ trashTodo.addEventListener('click', (e) => {
 
 })
 
+mixitup('.prod__cards', {
+    selectors:{
+        target:`.prod__cardbuy`
+    },
+    animation: {
+        duration: 300
+    }
+}).filter('all')
+
+mixitup('.prod__cards', {
+    selectors:{
+        target:`.prod__cardbuy`
+    },
+    animation: {
+        duration: 300
+    }
+}).filter('.mobile_phone')
+
+mixitup('.prod__cards', {
+    selectors:{
+        target:`.prod__cardbuy`
+    },
+    animation: {
+        duration: 300
+    }
+}).filter('.tablet')
+
+mixitup('.prod__cards', {
+    selectors:{
+        target:`.prod__cardbuy`
+    },
+    animation: {
+        duration: 300
+    }
+}).filter('.laptop')
+
+mixitup('.prod__cards', {
+    selectors:{
+        target:`.prod__cardbuy`
+    },
+    animation: {
+        duration: 300
+    }
+}).filter('.asesorios')
 
 /* base de datos**/

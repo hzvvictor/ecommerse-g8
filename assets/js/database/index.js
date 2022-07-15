@@ -3,7 +3,7 @@ const productos = [
     {
         id: 1,
         title: 'Smartphone',
-        category: 'mobile phone',
+        category: 'mobile_phone',
         img: 'assets/images/samsung_phone.png',
         price: 950.00,
         stock: 20
@@ -11,7 +11,7 @@ const productos = [
     {
         id: 2,
         title: 'Iphone',
-        category: 'mobile phone',
+        category: 'mobile_phone',
         img: 'assets/images/iphone-13-pro-.jpg',
         price: 50.00,
         stock: 15

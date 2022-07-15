@@ -119,7 +119,7 @@ const productPrint = () => {
     let dibujar = ''
     products.forEach(({ id, title, category, img, price, stock }) => {
         const template =
-            `<article class="prod__cardbuy" data-id="${id}" data-category="${category}">
+            `<article class="prod__cardbuy mix ${category}" data-id="${id}" data-category="${category}">
         <section class="prod__card">
             <div class="prod__img">
                 <img src="${img}" alt="">
