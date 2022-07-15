@@ -17,7 +17,7 @@ import {
     cart,
     cartShop,
 } from './components/cart-shop.js'
-
+cartProductClear()
 productPrint()
 
 
@@ -52,7 +52,6 @@ cartDOM.addEventListener('click', (e) => {
 
 const trashTodo = cartShop.cart.modal
 trashTodo.addEventListener('click', (e) => {
-    console.log(e.target.id);
     if (e.target.id == 'incontrashGlobal') {
         cartProductClear()
     } else if (e.target.matches('#checkoutButton')) {
