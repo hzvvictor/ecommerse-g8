@@ -60,5 +60,16 @@ trashTodo.addEventListener('click', (e) => {
 
 })
 
-
+const theme__document = document.getElementById('theme__document')
+const link__style = document.head.querySelector('#style')
+theme__document.addEventListener('click', () => {
+    const styles = {
+        default: 'style.css',
+        dark: 'style-dark.css'
+    }
+    if (link__style.getAttribute('href') == styles.default)
+        link__style.setAttribute('href', styles.dark)
+    else
+        link__style.setAttribute('href', styles.default)
+})
 /* base de datos**/
