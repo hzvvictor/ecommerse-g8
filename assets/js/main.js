@@ -4,6 +4,7 @@ const addEvent = (element, nameEvent, functiontoadd) => {
     element.addEventListener(nameEvent, functiontoadd)
 }
 import {
+    setFilter,
     productPrint,
     cartProductPrint,
     cartProductAdd,
@@ -60,51 +61,55 @@ trashTodo.addEventListener('click', (e) => {
 
 })
 
-mixitup('.prod__cards', {
-    selectors:{
-        target:`.prod__cardbuy`
-    },
-    animation: {
-        duration: 300
-    }
-}).filter('all')
+function filters(){
+    mixitup('.prod__cards', {
+        selectors: {
+            target: `.prod__cardbuy`
+        },
+        animation: {
+            duration: 300
+        }
+    }).filter('all')
+    
+    mixitup('.prod__cards', {
+        selectors: {
+            target: `.prod__cardbuy`
+        },
+        animation: {
+            duration: 300
+        }
+    }).filter('.mobile_phone')
+    
+    mixitup('.prod__cards', {
+        selectors: {
+            target: `.prod__cardbuy`
+        },
+        animation: {
+            duration: 300
+        }
+    }).filter('.tablet')
+    
+    mixitup('.prod__cards', {
+        selectors: {
+            target: `.prod__cardbuy`
+        },
+        animation: {
+            duration: 300
+        }
+    }).filter('.laptop')
+    
+    mixitup('.prod__cards', {
+        selectors: {
+            target: `.prod__cardbuy`
+        },
+        animation: {
+            duration: 300
+        }
+    }).filter('.asesorios')
+}
 
-mixitup('.prod__cards', {
-    selectors:{
-        target:`.prod__cardbuy`
-    },
-    animation: {
-        duration: 300
-    }
-}).filter('.mobile_phone')
-
-mixitup('.prod__cards', {
-    selectors:{
-        target:`.prod__cardbuy`
-    },
-    animation: {
-        duration: 300
-    }
-}).filter('.tablet')
-
-mixitup('.prod__cards', {
-    selectors:{
-        target:`.prod__cardbuy`
-    },
-    animation: {
-        duration: 300
-    }
-}).filter('.laptop')
-
-mixitup('.prod__cards', {
-    selectors:{
-        target:`.prod__cardbuy`
-    },
-    animation: {
-        duration: 300
-    }
-}).filter('.asesorios')
-
+// filters()
+/***********    Cambiar estilos inicio      ********* */
 const theme__document = document.getElementById('theme__document')
 const link__style = document.head.querySelector('#style')
 theme__document.addEventListener('click', () => {
@@ -117,4 +122,21 @@ theme__document.addEventListener('click', () => {
     else
         link__style.setAttribute('href', styles.default)
 })
+/***********    Categorias inicio     ********* */
+import myCSS from './components/mycss.js'
+const categorys = document.querySelector('.categorys')
+const prod__cards = document.querySelector('.prod__cards')
+
+categorys.addEventListener('click', ({ target }) => {
+    if (target.type == "radio") {
+        let filter = target.parentElement.getAttribute('data-filter')
+        if (filter == 'all') filter = false
+        else filter = filter.slice(1)
+        setFilter(filter)
+        myCSS.toggleAnimation(prod__cards ,'prod__cards--animation')
+    }
+})
+myCSS.toggleAnimation(prod__cards ,'prod__cards--animation')
+/***********    Categorias final     ********* */
+
 /* base de datos**/

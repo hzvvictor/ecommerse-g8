@@ -136,6 +136,19 @@ main {
     position: relative;
 }
 
+.prod__cards>* {
+    max-width: 10px;
+    margin: 0 60px;
+    transition: transform 0.3s, max-width 0.3s;
+    transform: rotate(180deg) scale(0.3);
+}
+
+.prod__cards--animation>* {
+    margin: 0;
+    max-width: none;
+    transform: unset;
+}
+
 .prod__cards {
     display: flex;
     flex-wrap: wrap;
@@ -597,4 +610,4 @@ input[name="category"]:checked+.description .category__title {
 .checkout {
     padding: 17px;
     text-transform: uppercase;
-  }
+}

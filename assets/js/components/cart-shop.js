@@ -76,7 +76,7 @@ function cartProductAdd(id, amount) {
 function cartProductRemove(id) {
     let productIndex;
     productIndex = cart.findIndex(product => product.id == id)
-
+    products[Number(id) - 1].stock += cart[productIndex].amount
     cart.splice(productIndex, 1)
 
     productPrint();
@@ -107,7 +107,6 @@ function cartProductClear() {
 }
 const cartProductBuy = () => {
     let total = cart.map(x => x.price * x.amount).reduce((z, y) => z + y)
-    console.log(products)
     cart = []
     cartDOM.innerHTML = ""
     alert(`Gracias por su compra, su total fue $${total}`)
@@ -118,6 +117,7 @@ const productPrint = () => {
     /* requiere de template de producto */
     let dibujar = ''
     products.forEach(({ id, title, category, img, price, stock }) => {
+        if (filter && category != filter) return;
         const template =
             `<article class="prod__cardbuy mix ${category}" data-id="${id}" data-category="${category}">
         <section class="prod__card">
@@ -153,14 +153,18 @@ const productPrint = () => {
 }
 
 const totalCheckout = (cart) => {
-    console.log(`[[[[[[[[[cart]]]]]]]]]`);
-    console.log(cart);
     let total = cart.length > 0 ? cart.map(x => x.price * x.amount).reduce((z, y) => z + y) : 0
     document.getElementById('total-print').innerHTML = `  $${total}`
 }
 
+let filter
+const setFilter = (filterName) => {
+    filter = filterName
+    productPrint()
+}
 
 export {
+    setFilter,
     productPrint,
     cartProductPrint,
     cartProductAdd,
