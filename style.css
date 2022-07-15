@@ -36,6 +36,15 @@ main {
     margin: 0 auto;
 }
 
+footer{
+    text-align: center;
+    background-color: var(--background-color);
+    color: var(--tertiary-color);
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: dashed;
+    border-top: solid black 0.02px;
+    
+}
 /* ************ | Fondo | ***************  */
 .home {
     position: relative;
@@ -46,7 +55,7 @@ main {
 
 .img__home {
     background-image: url('./assets/images/fondo.jpg');
-    height: 70vh;
+    height: 40vh;
     background-repeat: no-repeat;
     width: 100%;
     background-size: cover;
@@ -85,7 +94,7 @@ main {
     text-transform: uppercase;
     padding-inline: 3rem;
     z-index: 100;
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
 }
@@ -96,6 +105,7 @@ main {
     height: var(--nav--height);
     align-content: center;
     align-items: center;
+    box-shadow: 0 0 40px -5px;
 }
 
 .nav__utilidades a {
@@ -123,6 +133,7 @@ main {
     align-items: center;
     gap: 20px;
     padding-right: 20px;
+    box-shadow: 0 0 40px -5px;
 }
 
 .nav__icons i {
@@ -610,4 +621,18 @@ input[name="category"]:checked+.description .category__title {
 .checkout {
     padding: 17px;
     text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header {        
+        position: fixed;
+    }
+    .nav__utilidades {
+        box-shadow: 0 0 40px -5px;
+    }
+    .img__home {
+        height: 20vh;
+        justify-content: center;
+    }
+    
 }
