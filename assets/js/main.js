@@ -54,7 +54,7 @@ trashTodo.addEventListener('click', (e) => {
     if (e.target.id == 'incontrashGlobal') {
         cartProductClear()
     } else if (e.target.matches('#checkoutButton')) {
-        cartProductBuy()
+        cartProductBuy(e.target)
     }
 
 })

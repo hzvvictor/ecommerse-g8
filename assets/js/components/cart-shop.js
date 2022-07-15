@@ -105,11 +105,45 @@ function cartProductClear() {
     productPrint();
     cartProductPrint();
 }
-const cartProductBuy = () => {
+const cartProductBuy = (target) => {
     let total = cart.map(x => x.price * x.amount).reduce((z, y) => z + y)
-    cart = []
+    // console.log(target);
     cartDOM.innerHTML = ""
+    let structForm = {
+        form: document.createElement('form'),
+        NAMECLIENT: target.parentElement.querySelector('.NAMECLIENT'),
+        PRODUCTOS: document.createElement('input'),
+        FECHA: document.createElement('input'),
+        TOTAL: document.createElement('input')
+    }
+    const form = ({ form, NAMECLIENT,PRODUCTOS, FECHA, TOTAL }) => {
+        form.name = 'Registro_Compras'
+
+        PRODUCTOS.name = "PRODUCTOS"
+        PRODUCTOS.value = JSON.stringify(cart)
+
+        TOTAL.name = "TOTAL"
+        TOTAL.value = total
+
+        FECHA.name = "FECHA"
+        FECHA.value = new Date().toLocaleString()
+
+        form.append(NAMECLIENT)
+        form.append(PRODUCTOS)
+        form.append(TOTAL)
+        form.append(FECHA)
+        return form
+    }
+
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyNQ_uKlTlkX5_rPvSHgqm3oW39NskQwjs-RL-eCtQr3Bj_51OjH8Mi0cZvVFdRt8aVMQ/exec'
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form(structForm)) })
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+
     alert(`Gracias por su compra, su total fue $${total}`)
+    cart = []
     return total
 }
 
