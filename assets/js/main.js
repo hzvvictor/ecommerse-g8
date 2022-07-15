@@ -35,8 +35,6 @@ productsDOM.addEventListener('click', (e) => {
 
 cartDOM.addEventListener('click', (e) => {
     if (e.target.matches('.add')) {
-        // alert('agregar')
-
         let id = e.target.parentElement.parentElement.parentElement.getAttribute('data-id')
         id = Number(id)
         cartProductAdd(id, 1)
@@ -132,11 +130,14 @@ categorys.addEventListener('click', ({ target }) => {
         let filter = target.parentElement.getAttribute('data-filter')
         if (filter == 'all') filter = false
         else filter = filter.slice(1)
+        console.log(filter);
         setFilter(filter)
         myCSS.toggleAnimation(prod__cards ,'prod__cards--animation')
     }
 })
-myCSS.toggleAnimation(prod__cards ,'prod__cards--animation')
+setTimeout(() => {
+    myCSS.toggleAnimation(prod__cards ,'prod__cards--animation')
+}, 100);
 /***********    Categorias final     ********* */
 
 /* base de datos**/

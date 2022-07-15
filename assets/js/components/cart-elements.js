@@ -105,12 +105,13 @@ const productsInputEvents = () => {
         const parentElement = e.target.parentElement
         if (parentElement.matches(".amount__btn") == false)
             return;
-        const {  stock } = getStockActual(e.target, 3)
+        const { stock } = getStockActual(e.target, 3)
         const input = e.target.parentElement.parentElement.querySelector('.cant__prod')
         if (parentElement.matches('.add') && input.value < stock) {
             input.value = Number(input.value) + 1
             return
         }
+        
         if (input.value > 1) --input.value
     })
 

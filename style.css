@@ -23,7 +23,15 @@
     --color-btn-buy-active: rgb(72, 88, 180);
 
 }
-
+header{
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    background-color: var(--primary-color);
+    justify-content: center;
+}
 body {
     background-color: var(--background-color);
     color: var(--tertiary-color);
@@ -34,6 +42,7 @@ body {
 main {
     max-width: 1024px;
     margin: 0 auto;
+    padding-bottom: 3rem;
 }
 
 footer{
@@ -87,16 +96,12 @@ footer{
 .header {
     background-color: var(--primary-color);
     display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
     font-size: 1.07rem;
-    justify-content: space-between;
     text-transform: uppercase;
     padding-inline: 3rem;
-    z-index: 100;
-    position: fixed;
     width: 100%;
-    top: 0;
+    max-width: 1024px;
+    justify-content: center;
 }
 
 .nav__utilidades {
@@ -105,7 +110,7 @@ footer{
     height: var(--nav--height);
     align-content: center;
     align-items: center;
-    box-shadow: 0 0 40px -5px;
+    /* box-shadow: 0 0 40px -5px; */
 }
 
 .nav__utilidades a {
@@ -132,8 +137,9 @@ footer{
     display: flex;
     align-items: center;
     gap: 20px;
-    padding-right: 20px;
-    box-shadow: 0 0 40px -5px;
+    padding: 0 20px;
+    margin-left: auto;
+    /* box-shadow: 0 0 40px -5px; */
 }
 
 .nav__icons i {
@@ -150,14 +156,17 @@ footer{
 .prod__cards>* {
     max-width: 10px;
     margin: 0 60px;
-    transition: transform 0.3s, max-width 0.3s;
-    transform: rotate(180deg) scale(0.3);
+    transition: transform 0.2s, max-width 0.3s, opacity 0.7s;
+    transform: rotate(180deg) scale(0.1) rotateZ(-80deg);
+    /* transform: scale(0.1) translateX(-0rem); */
+    opacity: 0.3;
 }
 
 .prod__cards--animation>* {
     margin: 0;
     max-width: none;
     transform: unset;
+    opacity: 1;
 }
 
 .prod__cards {
@@ -186,6 +195,9 @@ footer{
     height: 20rem;
 } */
 
+.prod__card:hover {
+    transform: unset;
+}
 .prod__card {
     min-width: 200px;
     height: auto;
@@ -201,6 +213,8 @@ footer{
     outline: 1px solid #7773;
     border: 0.5rem solid white;
     border-radius: 5px;
+    transform: scale(0.96);
+    transition: transform 0.4s;
 }
 
 .prod__card:hover .prod__img::before {
@@ -249,12 +263,16 @@ footer{
     overflow: hidden;
 }
 
+.prod__card:hover img {
+    transform: scaleX(0.7) scaleY(0.7);
+}
 
 .prod__img img {
     width: auto;
     height: 100%;
     position: absolute;
-    transform: scaleX(0.7) scaleY(0.7);
+    transform: scaleX(0.5) scaleY(0.5) rotate3d(-1, 0, -1, 9deg);
+    transition: transform 0.3s;
 }
 
 .prod__info,
@@ -635,4 +653,8 @@ input[name="category"]:checked+.description .category__title {
         justify-content: center;
     }
     
+}
+
+.footer__text {
+    padding: 15px 0px;
 }
